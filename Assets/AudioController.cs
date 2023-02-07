@@ -6,7 +6,12 @@ using UnityEngine.Advertisements;
 public class AudioController : MonoBehaviour
 {
     public AudioSource[] sound,music;
+
+#if UNITY_IOS
+    private string gameID="4262470";
+#else
     private string gameID="4262471";
+#endif
 
     void Start(){
 
