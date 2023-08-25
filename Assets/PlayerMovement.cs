@@ -29,22 +29,32 @@ public class PlayerMovement : MonoBehaviour
 
 
     void Update(){
-        if(started)transform.Translate(new Vector3(1,0,0)*speed*Time.timeScale*-1/80);
+        if(started)transform.Translate(new Vector3(1,rb.useGravity ? 0 : 0.1f,0)*speed*Time.timeScale*-1/80);
 
         transform.position=new Vector3(transform.position.x, transform.position.y, 0.36f);
     }
 
 
     void OnCollisionEnter(Collision other){
+        CancelInvoke(nameof(changeGravity));
+
         rb.useGravity=false;
         rb.velocity=Vector3.zero;
         rb.constraints = RigidbodyConstraints.FreezeRotationZ;
     }
+    
+    void OnCollisionStay(Collision other){
+        CancelInvoke(nameof(changeGravity));
+	}
 
     void OnCollisionExit(Collision other){
-        rb.useGravity=true;
-        rb.constraints=rbStartConstraints;
+        Invoke(nameof(changeGravity), 0.2f);
         //transform.Rotate(-180,0,0);
+    }
+    
+    void changeGravity(){
+    	rb.useGravity=true;
+        rb.constraints=rbStartConstraints;
     }
 
     public void makeMovement(){
