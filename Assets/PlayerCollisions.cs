@@ -32,6 +32,13 @@ public class PlayerCollisions : MonoBehaviour
             fx.playCoinEffect();
 
             coins.updateCoins(1);
+        }else{
+        	if(player.rb.useGravity && other.transform.position.y < gameObject.transform.position.y){
+        		ui.setDeathPanelVisibility(true);
+            	player.speed=0;
+            	fx.playDeathEffect();
+            	hideSkins();
+            }
         }
         
     }

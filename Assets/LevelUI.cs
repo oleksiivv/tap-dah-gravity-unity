@@ -55,7 +55,7 @@ public class LevelUI : MonoBehaviour
 
         if(addCnt%3==0 && !alreadyShowed){
             if(Advertisement.IsReady()){
-                Advertisement.Show("Interstitial_Android");
+                Advertisement.Show("Interstitial_iOS");
                 alreadyShowed=true;
             }
         }
@@ -81,7 +81,7 @@ public class LevelUI : MonoBehaviour
         if(visible){
             if(addCnt%3==0 && !alreadyShowed){
                 if(Advertisement.IsReady()){
-                    Advertisement.Show("Interstitial_Android");
+                    Advertisement.Show("Interstitial_iOS");
                     alreadyShowed=true;
                 }
                 else{
@@ -98,7 +98,7 @@ public class LevelUI : MonoBehaviour
         if(visible){
             if(addCnt%3==0 && !alreadyShowed){
                 if(Advertisement.IsReady()){
-                    Advertisement.Show("Interstitial_Android");
+                    Advertisement.Show("Interstitial_iOS");
                     alreadyShowed=true;
                 }
                 else{
