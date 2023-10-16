@@ -53,10 +53,10 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    IEnumerator ShowBannerWhenReady () {
-        while (!Advertisement.IsReady ("Banner_Android")) {
-            yield return new WaitForSeconds (0.5f);
-        }
+    void ShowBannerWhenReady () {
+       // while (!Advertisement.IsReady ("Banner_Android")) {
+       //     yield return new WaitForSeconds (0.5f);
+       // }
         Advertisement.Banner.SetPosition (BannerPosition.BOTTOM_RIGHT);
         Advertisement.Banner.Show ("Banner_Android");
     }
